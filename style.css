@@ -1,0 +1,597 @@
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+
+body,
+html {
+  font-family: "Neucha", cursive;
+  background-color: beige;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+.logo a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 40px;
+}
+a {
+  text-decoration: none;
+  font-style: normal;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05); /* Легке збільшення кнопки */
+  color: var(--color-prime);
+}
+h2 {
+  font-size: 40px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.menu nav {
+  display: flex;
+  gap: 20px;
+}
+.button img {
+  width: 20px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
+  padding: 20px;
+}
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+}
+
+#cookie-banner p {
+  margin: 0;
+  font-size: 16px;
+}
+
+#cookie-banner button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#cookie-banner button.decline {
+  background-color: #f44336;
+}
+
+#cookie-banner button:hover {
+  opacity: 0.8;
+}
+
+/* scroll */
+/* Стилізація скролбару на всьому сайті */
+::-webkit-scrollbar {
+  width: 12px; /* Ширина вертикального скролбару */
+  height: 12px; /* Висота горизонтального скролбару */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2a3d66; /* Колір самого скролбару */
+  border-radius: 6px; /* Заокруглені кути */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4b0082; /* Темніше індиго при наведенні */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Колір фону скролбару */
+  border-radius: 6px; /* Заокруглені кути */
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #f1f1f1; /* Колір внутрішньої частини треку */
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: 300px;
+    width: 90%;
+  }
+}
+
+/* Загальні стилі для бургер-меню */
+.burger-menu {
+  display: none; /* Ховати бургер-меню на десктопах */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999; /* Вищий z-index, щоб бургер-меню було зверху */
+}
+
+.burger-line {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 5px;
+}
+
+/* Стилі для меню на мобільних пристроях */
+@media (max-width: 768px) {
+  #nav-menu {
+    /* Тепер звертаємось до id */
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 998; /* Зробити menu менше, щоб воно не перекривало бургер */
+  }
+
+  /* Стилі для мобільного меню при відкритті */
+  #nav-menu.active {
+    display: flex; /* Переключаємо на відображення */
+    flex-direction: column; /* Розташовуємо елементи вертикально */
+  }
+
+  /* Показати бургер-меню на мобільних пристроях */
+  .burger-menu {
+    display: flex;
+  }
+}
+.header-color {
+  background-color: #435781;
+  color: beige;
+}
+/* hero */
+
+.hero {
+  position: relative;
+  background-image: url("./img/hero2.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: beige;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Застосовуємо затемнення */
+  z-index: 1; /* Це гарантує, що затемнення буде поверх фону */
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+.hero-container {
+  max-width: 800px;
+  border-radius: 50px;
+  padding: 50px;
+  border: solid 2px beige;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-button {
+  display: flex;
+  gap: 20px;
+}
+.hero-button a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #435781;
+  padding: 10px;
+  width: 150px;
+}
+.color {
+  color: #435781;
+  font-size: 28px;
+}
+
+.about-container {
+  display: flex;
+  gap: 50px;
+  margin: 100px 0;
+}
+.about-img img {
+  border-radius: 20px;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+.about-img,
+.about-text {
+  flex: 1;
+}
+.about-img img {
+  width: 100%; /* Завжди на повну ширину контейнера */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Додаємо плавний перехід для масштабування і прозорості */
+  opacity: 0; /* Спочатку зображення непрозоре */
+  transform: scale(0.9); /* Початковий розмір зображення зменшений */
+}
+
+.about-img img.visible {
+  opacity: 1; /* Зображення стає видимим */
+  transform: scale(1) rotate(5deg); /* Зображення збільшується та трохи повертається */
+}
+
+/* features */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 стовпці з однаковою шириною */
+  gap: 20px; /* Відстань між елементами */
+}
+
+.features-item {
+  background-color: #f9f9f9; /* Легкий фон для кожного елементу */
+  padding: 20px; /* Відступи всередині */
+  border-radius: 10px; /* Закруглені кути */
+  transition: all 0.3s ease; /* Плавний перехід для анімацій */
+}
+
+.features-item:hover {
+  transform: scale(1.05); /* Невелике збільшення при наведенні */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тінь при наведенні */
+}
+.features {
+  margin-bottom: 70px;
+}
+.features h2 {
+  color: #435781;
+}
+@media (max-width: 768px) {
+  .features-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 елемента в ряд для мобільних пристроїв */
+  }
+}
+
+@media (max-width: 480px) {
+  .features-container {
+    grid-template-columns: 1fr; /* 1 елемент в ряд для дуже маленьких екранів */
+  }
+}
+
+.how-to-play {
+  background-color: #435781; /* Arka plan rengini açık gri yapalım */
+  padding: 60px 0;
+  text-align: center;
+}
+
+.how-to-play .section-title {
+  font-size: 36px;
+  color: beige;
+  margin-bottom: 40px;
+}
+
+.how-to-play-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.how-to-play-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-to-play-item h3 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 15px;
+}
+
+.how-to-play-item p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.how-to-play-item i {
+  font-size: 40px;
+  color: #1d72b8;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.how-to-play-item:hover {
+  transform: translateY(-10px); /* Hover efekti ile biraz yukarı kaydırma */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Hover ile kutu gölgesini artırma */
+}
+
+.how-to-play-item:hover i {
+  transform: scale(1.2); /* İkonu hover ile büyütme */
+}
+
+@media (max-width: 768px) {
+  .how-to-play-content {
+    grid-template-columns: 1fr; /* Küçük ekranlarda 1 sütun */
+  }
+}
+
+.reviews {
+  background-color: beige; /* Açık gri arka plan */
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #2d2d2d;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.review-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.review-username {
+  font-size: 18px;
+  color: #333;
+}
+
+.review-stars i {
+  color: #f1c40f;
+  font-size: 16px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.review-item:hover {
+  transform: translateY(-5px); /* Hover efekti ile yukarı kaydırma */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Hover ile kutu gölgesini artırma */
+}
+
+@media (max-width: 768px) {
+  .reviews-container {
+    padding: 0 20px;
+  }
+}
+
+.pay {
+  background-color: #f4f4f4; /* Arka plan rengi */
+  padding: 80px 0;
+  text-align: center;
+}
+
+.pay-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Küçük ekranlarda daha iyi düzenleme */
+}
+
+.pay-text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.pay-text h2 {
+  font-size: 32px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.pay-text p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-button .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button .button img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.hero-button .button:hover {
+  background-color: #1a1a1a;
+}
+
+.pay-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pay-video-img {
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: rotate(-6deg); /* Resmi hafifçe eğme */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pay-video-img:hover {
+  transform: rotate(0deg); /* Hover efekti ile düzleştirme */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Hover efekti ile gölgeyi artırma */
+}
+
+@media (max-width: 768px) {
+  .pay-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pay-video-img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+.footer {
+  background-color: #435781;
+  color: beige;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+  .hero-container {
+    padding: 20px;
+  }
+  .hero-button .button {
+    padding: 10px;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .pay {
+    flex-direction: column;
+  }
+  .pay-text {
+   padding: 0;
+  }
+
+  .container-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container-footer p {
+    font-size: 13px;
+  }
+}
